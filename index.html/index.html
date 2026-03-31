@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mary Goiri | Design Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    background-color: #FFF9F7;
+    color: #2C2A2B;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.5;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* Header */
+  .hero {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(135deg, #FFF5F0, #FFF9F7);
+    position: relative;
+  }
+
+  .hero-content {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4.5rem;
+    font-weight: 600;
+    color: #9B5E7C;
+    margin-bottom: 1rem;
+  }
+
+  .hero-tagline {
+    font-size: 1.3rem;
+    color: #7A5A6A;
+    border-top: 2px solid #F0D5DF;
+    display: inline-block;
+    padding-top: 0.8rem;
+  }
+
+  .hero-desc {
+    color: #8B6F7A;
+    margin: 1.8rem auto 2rem;
+    max-width: 550px;
+  }
+
+  .btn {
+    display: inline-block;
+    background: #9B5E7C;
+    color: white;
+    padding: 0.8rem 2rem;
+    text-decoration: none;
+    border-radius: 40px;
+    font-weight: 500;
+    transition: 0.3s;
+  }
+
+  .btn:hover {
+    background: #7A4A62;
+    transform: translateY(-2px);
+  }
+
+  .scroll-down {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #B88AA8;
+    cursor: pointer;
+    animation: bounce 1.5s infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
+
+  /* Services */
+  .services {
+    padding: 5rem 0;
+    background: white;
+  }
+
+  .section-title {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: #2C2A2B;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-subtitle {
+    text-align: center;
+    color: #B88AA8;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    margin-bottom: 3rem;
+  }
+
+  .services-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+  }
+
+  .service-card {
+    background: #FFF9F7;
+    padding: 2rem;
+    border-radius: 1.5rem;
+    text-align: center;
+    width: 280px;
+    transition: 0.3s;
+    border: 1px solid #F5E6ED;
+  }
+
+  .service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px -12px rgba(155, 94, 124, 0.15);
+    border-color: #E8D0DB;
+  }
+
+  .service-icon {
+    font-size: 2.5rem;
+    color: #9B5E7C;
+    margin-bottom: 1.2rem;
+  }
+
+  .service-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .service-card p {
+    color: #6F5A64;
+    font-size: 0.9rem;
+  }
+
+  /* Portfolio */
+  .portfolio {
+    padding: 5rem 0;
+    background: #FFF9F7;
+  }
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .portfolio-item {
+    background: white;
+    border-radius: 1.2rem;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    transition: 0.3s;
+    border: 1px solid #F0E2E8;
+  }
+
+  .portfolio-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
+  }
+
+  .portfolio-image {
+    width: 100%;
+    height: 200px;
+    background: #F5EAEF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9B5E7C;
+    font-size: 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Birthday card special styling */
+  .birthday-card-preview {
+    background: linear-gradient(135deg, #FDE2E8, #FFE8F0);
+    position: relative;
+  }
+
+  .birthday-card-preview::before {
+    content: "🎂";
+    position: absolute;
+    font-size: 4rem;
+    opacity: 0.2;
+    bottom: 10px;
+    right: 10px;
+  }
+
+  .birthday-card-preview::after {
+    content: "✨";
+    position: absolute;
+    font-size: 3rem;
+    opacity: 0.2;
+    top: 10px;
+    left: 10px;
+  }
+
+  .card-mockup {
+    text-align: center;
+    z-index: 2;
+  }
+
+  .card-mockup i {
+    font-size: 4rem;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+
+  .portfolio-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .portfolio-info {
+    padding: 1.3rem;
+  }
+
+  .portfolio-category {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #B88AA8;
+    font-weight: 600;
+  }
+
+  .portfolio-info h3 {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+    font-weight: 600;
+  }
+
+  .portfolio-info p {
+    color: #6F5A64;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+  }
+
+  .portfolio-info p:last-of-type {
+    margin-bottom: 1rem;
+  }
+
+  /* WhatsApp Link Button */
+  .whatsapp-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: #25D366;
+    color: white;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0.6rem 1rem;
+    border-radius: 50px;
+    transition: 0.3s;
+    margin-top: 0.5rem;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .whatsapp-link:hover {
+    background: #1DA851;
+    transform: scale(1.02);
+    gap: 0.8rem;
+  }
+
+  .whatsapp-link i {
+    font-size: 1.1rem;
+  }
+
+  /* Featured badge */
+  .featured-badge {
+    display: inline-block;
+    background: #9B5E7C;
+    color: white;
+    font-size: 0.6rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+  }
+
+  /* About Section */
+  .about {
+    padding: 5rem 0;
+    background: white;
+  }
+
+  .about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .about-content p {
+    color: #6F5A64;
+    line-height: 1.7;
+    margin: 1.5rem 0;
+  }
+
+  .stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #9B5E7C;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+    color: #8B6F7A;
+  }
+
+  /* Footer */
+  .footer {
+    background: #FDF5F0;
+    padding: 3rem 0;
+    text-align: center;
+    border-top: 1px solid #F0E2E8;
+  }
+
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 1rem 0;
+  }
+
+  .social-links a {
+    color: #B88AA8;
+    font-size: 1.2rem;
+    transition: 0.2s;
+  }
+
+  .social-links a:hover {
+    color: #9B5E7C;
+  }
+
+  .copyright {
+    font-size: 0.75rem;
+    color: #B291A5;
+    margin-top: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 3rem; }
+    .container { padding: 0 1.5rem; }
+    .portfolio-grid { grid-template-columns: 1fr; }
+    .stats { gap: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="container hero-content">
+    <h1>Mary Goiri</h1>
+    <div class="hero-tagline">Designs · Web · Creative Solutions · Excel</div>
+    <p class="hero-desc">Bringing stories to life through thoughtful design, digital craftsmanship, data intelligence, and human-centered creativity.</p>
+    <a href="#portfolio" class="btn">View my work</a>
+  </div>
+  <div class="scroll-down" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">
+    <i class="fas fa-chevron-down"></i>
+  </div>
+</section>
+
+<section id="services" class="services">
+  <div class="container">
+    <h2 class="section-title">What I Do</h2>
+    <div class="section-subtitle">SERVICES</div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-palette"></i></div>
+        <h3>Posters & Cards</h3>
+        <p>Wedding invitations, birthday cards, posters — beautiful print design for every occasion.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
+        <h3>Web & App Design</h3>
+        <p>Modern, responsive websites and apps that look great and work perfectly.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-file-alt"></i></div>
+        <h3>Forms & Applications</h3>
+        <p>Custom forms, surveys, and interactive tools designed for your needs.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-table"></i></div>
+        <h3>Excel & Data Solutions</h3>
+        <p>Spreadsheets, dashboards, formulas, and automation to organize your data beautifully.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="portfolio" class="portfolio">
+  <div class="container">
+    <h2 class="section-title">My Portfolio</h2>
+    <div class="section-subtitle">RECENT PROJECTS</div>
+    
+    <div class="portfolio-grid">
+      <!-- Birthday Card Design -->
+      <div class="portfolio-item">
+        <div class="portfolio-image birthday-card-preview">
+          <div class="card-mockup">
+            <i class="fas fa-birthday-cake"></i>
+            <div class="card-date">Birthday Cards</div>
+            <i class="fas fa-star" style="font-size: 1.5rem; margin-top: 0.5rem;"></i>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <div class="portfolio-category">Posters & Cards <span class="featured-badge">Featured</span></div>
+          <h3>Birthday Card Design</h3>
+          <p>I design beautiful and personalized birthday cards for your loved ones. Soft elegant styles with names, dates, and custom details.</p>
+          <a href="https://wa.me/254798837586?text=Hi%20Mary%2C%20I%20saw%20your%20website%20and%20I'm%20interested%20in%20your%20services." class="whatsapp-link" target="_blank">
+            <i class="fab fa-whatsapp"></i> Need something like this? Message me on WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <!-- App Design -->
+      <div class="portfolio-item">
+        <div class="portfolio-image">
+          <i class="fas fa-mobile-alt"></i>
+        </div>
+        <div class="portfolio-info">
+          <div class="portfolio-category">App Design</div>
+          <h3>App Design</h3>
+          <p>I design simple and clean mobile apps that are easy to use and look modern.</p>
+          <a href="https://wa.me/254798837586?text=Hi%20Mary%2C%20I%20saw%20your%20website%20and%20I'm%20interested%20in%20your%20services." class="whatsapp-link" target="_blank">
+            <i class="fab fa-whatsapp"></i> Need something like this? Message me on WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <!-- RSVP & Event Forms -->
+      <div class="portfolio-item">
+        <div class="portfolio-image">
+          <i class="fas fa-calendar-check"></i>
+        </div>
+        <div class="portfolio-info">
+          <div class="portfolio-category">Forms & Applications</div>
+          <h3>RSVP & Event Forms</h3>
+          <p>I create easy-to-use forms to manage your event guests and confirmations.</p>
+          <a href="https://wa.me/254798837586?text=Hi%20Mary%2C%20I%20saw%20your%20website%20and%20I'm%20interested%20in%20your%20services." class="whatsapp-link" target="_blank">
+            <i class="fab fa-whatsapp"></i> Need something like this? Message me on WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <!-- Excel Dashboard -->
+      <div class="portfolio-item">
+        <div class="portfolio-image">
+          <i class="fas fa-chart-pie"></i>
+        </div>
+        <div class="portfolio-info">
+          <div class="portfolio-category">Excel & Data Solutions</div>
+          <h3>Excel Dashboard</h3>
+          <p>I build simple dashboards to help you track your data, sales, and expenses easily.</p>
+          <a href="https://wa.me/254798837586?text=Hi%20Mary%2C%20I%20saw%20your%20website%20and%20I'm%20interested%20in%20your%20services." class="whatsapp-link" target="_blank">
+            <i class="fab fa-whatsapp"></i> Need something like this? Message me on WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <!-- Poster Design -->
+      <div class="portfolio-item">
+        <div class="portfolio-image">
+          <i class="fas fa-palette"></i>
+        </div>
+        <div class="portfolio-info">
+          <div class="portfolio-category">Posters & Cards</div>
+          <h3>Poster Design</h3>
+          <p>I design eye-catching posters for events, businesses, and promotions.</p>
+          <a href="https://wa.me/254798837586?text=Hi%20Mary%2C%20I%20saw%20your%20website%20and%20I'm%20interested%20in%20your%20services." class="whatsapp-link" target="_blank">
+            <i class="fab fa-whatsapp"></i> Need something like this? Message me on WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <!-- Website Design -->
+      <div class="portfolio-item">
+        <div class="portfolio-image">
+          <i class="fas fa-laptop-code"></i>
+        </div>
+        <div class="portfolio-info">
+          <div class="portfolio-category">Web Design</div>
+          <h3>Website Design</h3>
+          <p>I build clean and modern websites to showcase your work or business online.</p>
+          <a href="https://wa.me/254798837586?text=Hi%20Mary%2C%20I%20saw%20your%20website%20and%20I'm%20interested%20in%20your%20services." class="whatsapp-link" target="_blank">
+            <i class="fab fa-whatsapp"></i> Need something like this? Message me on WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <!-- Sales Tracker & Forecast -->
+      <div class="portfolio-item">
+        <div class="portfolio-image">
+          <i class="fas fa-chart-line"></i>
+        </div>
+        <div class="portfolio-info">
+          <div class="portfolio-category">Excel & Data Solutions</div>
+          <h3>Sales Tracker & Forecast</h3>
+          <p>Track your sales easily and see how your business is growing.</p>
+          <p>Simple and clear system to help you plan ahead.</p>
+          <a href="https://wa.me/254798837586?text=Hi%20Mary%2C%20I%20saw%20your%20website%20and%20I'm%20interested%20in%20your%20services." class="whatsapp-link" target="_blank">
+            <i class="fab fa-whatsapp"></i> Need something like this? Message me on WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <!-- Feedback Form Tool -->
+      <div class="portfolio-item">
+        <div class="portfolio-image">
+          <i class="fas fa-comment-dots"></i>
+        </div>
+        <div class="portfolio-info">
+          <div class="portfolio-category">Forms & Applications</div>
+          <h3>Feedback Form Tool</h3>
+          <p>Collect feedback from your customers easily and understand what they think.</p>
+          <a href="https://wa.me/254798837586?text=Hi%20Mary%2C%20I%20saw%20your%20website%20and%20I'm%20interested%20in%20your%20services." class="whatsapp-link" target="_blank">
+            <i class="fab fa-whatsapp"></i> Need something like this? Message me on WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <!-- Budget Planner & Expense Tracker -->
+      <div class="portfolio-item">
+        <div class="portfolio-image">
+          <i class="fas fa-file-invoice-dollar"></i>
+        </div>
+        <div class="portfolio-info">
+          <div class="portfolio-category">Excel & Data Solutions</div>
+          <h3>Budget Planner & Expense Tracker</h3>
+          <p>Manage your money better by tracking your income and expenses in one place.</p>
+          <a href="https://wa.me/254798837586?text=Hi%20Mary%2C%20I%20saw%20your%20website%20and%20I'm%20interested%20in%20your%20services." class="whatsapp-link" target="_blank">
+            <i class="fab fa-whatsapp"></i> Need something like this? Message me on WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about">
+  <div class="container about-content">
+    <h2 class="section-title">About Me</h2>
+    <p>I'm Mary, a designer and data enthusiast who believes in creating work that's both beautiful and functional. Whether it's a birthday card, a web application, or an Excel dashboard, every project gets the same care, attention to detail, and creative energy.</p>
+    <p>I work closely with clients to understand their vision and bring it to life with thoughtful design, technical craftsmanship, and smart data solutions.</p>
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-number">60+</div>
+        <div class="stat-label">Projects Completed</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Client Focused</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">✨</div>
+        <div class="stat-label">Creative + Data</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="social-links">
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-behance"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#"><i class="fab fa-dribbble"></i></a>
+    </div>
+    <div class="copyright">
+      © 2026 Mary Goiri. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Smooth scroll for navigation
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
+  // Simple animation on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.service-card, .portfolio-item, .about-content').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
